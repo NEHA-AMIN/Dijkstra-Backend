@@ -36,6 +36,9 @@ class DocumentService:
         # Create document with the found profile_id
         document = Document(
             profile_id=profile.id,
+            document_name=document_create.document_name,
+            document_type=document_create.document_type,
+            document_kind=document_create.document_kind,
             latex=document_create.latex,
             base_structure=document_create.base_structure
         )

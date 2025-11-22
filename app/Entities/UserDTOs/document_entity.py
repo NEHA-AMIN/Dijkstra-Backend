@@ -8,6 +8,11 @@ from pydantic import BaseModel, validator
 # ----------------------
 class CreateDocument(BaseModel):
     github_username: str
+    document_name: Optional[str] = None
+    # 'row' or 'deedy'
+    document_type: Optional[str] = None
+    # 'resume' or 'cv'
+    document_kind: Optional[str] = None
     latex: str
     base_structure: dict
 
@@ -22,6 +27,9 @@ class CreateDocument(BaseModel):
 
 
 class UpdateDocument(BaseModel):
+    document_name: Optional[str] = None
+    document_type: Optional[str] = None
+    document_kind: Optional[str] = None
     latex: Optional[str] = None
     base_structure: Optional[dict] = None
     
@@ -32,6 +40,9 @@ class UpdateDocument(BaseModel):
 class ReadDocument(BaseModel):
     id: UUID
     profile_id: UUID
+    document_name: Optional[str] = None
+    document_type: Optional[str] = None
+    document_kind: Optional[str] = None
     latex: Optional[str] = None
     base_structure: Optional[dict] = None
     created_at: datetime
